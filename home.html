@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Price Predictor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/blocks.css/dist/blocks.min.css" />
+    <link rel='stylesheet' type='text/css' href='{{url_for('static', filename='home.css')}}'
+</head>
+<body>
+<h1>Car Price Predictor</h1>
+<hr>
+<form action= '{{url_for('predict')}}' method="POST" id="form">
+    <h3>How much is my car worth?</h3>
+    <p>Get an accurate price for your vehicle by entering the following details</p>
+        <section class='year'>
+            <label for="year">Year</label>
+            <input type="number" name="year" id="year1" required='required' min="0">
+        </section>
+        <hr>
+        <section class='msrp'>
+            <label for="msrp">MSRP</label>
+            <input type="number" name="msrp" id="msrp" required='required' min="0">
+        </section>
+        <hr>
+        <section class='kms'>
+            <label for="kms">Kilometers Driven</label>
+            <input type="number" name="kms" id="kms" required='required' min="0">
+        </section>
+        <hr>
+        <section class='owner'>
+            <label for="owner">Previous Owners</label>
+            <select name="owner" id="owner">
+                <option value="1">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </section>
+        <hr>
+        <section class='Fuel'>
+            <label for="Fuel">Fuel Type</label>
+            <select name="fuel" >
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="CNG">CNG</option>
+            </select>
+        <hr>
+        <section class='seller_type'>
+            <label for="seller">Dealer or individual?</label>
+            <select name="seller">
+                <option value="Dealer">Dealer</option>
+                <option value="Individual">Individual</option>
+            </select>
+        </section>
+        <hr>
+        <section class='transmission'>
+            <label for="transmission">Transmission</label>
+            <select name="transmission">
+                <option value="Manual">Manual</option>
+                <option value="Automatic">Automatic</option>
+            </select>
+        </section>
+        <hr>
+        <div class='text-center'> 
+            <button type='submit'>Submit</button>
+        </div>
+</form>
+<div id="price" class="text-center">
+    <p>Your estimated car price is</p>
+    <p id='priceS'>{{predPrice}}</p>
+</div>
+</body>
+</html>
